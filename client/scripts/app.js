@@ -37,7 +37,7 @@ app.controller('AppCtrl', ['$scope', '$mdSidenav', 'taskService', '$timeout', '$
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
         when('/home', {
-            templateUrl: "/assets/views/routes/home.html",
+            templateUrl: "/assets/views/routes/about.html",
             controller: "HomeController"
         }).
          when('/timer', {

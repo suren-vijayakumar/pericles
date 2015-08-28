@@ -28,7 +28,7 @@ module.exports = function(grunt){
                 expand: true,
                 cwd: 'client',
                 src: [
-                    "styles/style.css"
+                    "styles/styles.css"
                 ],
                 "dest": "server/public/assets"
             },
@@ -36,7 +36,9 @@ module.exports = function(grunt){
                 expand: true,
                 cwd: 'client/views/',
                 src: [
-                    "index.html"
+                    "index.html",
+                     "register.html"
+
                 ],
                 "dest": "server/public/assets/views/"
             },
@@ -47,7 +49,9 @@ module.exports = function(grunt){
                     "views/routes/timer.html",
                      "views/routes/home.html",
                      "views/routes/crutch.html",
-                    "views/routes/grammar.html"
+                    "views/routes/grammar.html",
+                    "views/routes/about.html"
+
 
                 ],
                 "dest": "server/public/assets"

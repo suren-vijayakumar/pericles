@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 
 var index = require("./routes/index.js");
 
-var mongoDB = mongoose.connect('mongodb://localhost/angular_routing').connection;
+var mongoDB = mongoose.connect('mongodb://localhost/spiik').connection;
 
 mongoDB.on('error', function(err){
     if(err){

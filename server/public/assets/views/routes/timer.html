@@ -1,0 +1,21 @@
+<!--<p> timer</p>-->
+<div ng-app="tasksApp" ng-controller="TimerController">
+
+    <div ng-repeat="options in stopwatches">
+        <div bb-stopwatch options="options">
+            <div class="container">
+              <div class="stopWatch numbers">
+                {{options.elapsedTime | stopwatchTime}}
+               </div>
+             <div>
+               <button class="btn btn-success btn-lg" ng-click="startTimer()">Start</button>
+              <button class="btn btn-danger btn-lg " ng-click="stopTimer()">Stop</button>
+              <button class="btn btn-info btn-lg" ng-click="resetTimer()">Reset</button>
+             </div>
+            </div>
+        </div>
+        <div class="log" ng-repeat="log in options.log">
+            {{log/1000}} seconds
+        </div>
+    </div>
+</div>

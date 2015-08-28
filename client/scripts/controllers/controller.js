@@ -13,7 +13,17 @@ app.controller('CrutchController', ['$scope', function($scope){
 
 app.controller('GrammarController', ['$scope', function($scope){
     $scope.thing = "There's more room for proper Grammar!";
+$scope.comment = [];
+                $scope.btn_add = function() {
+                    if($scope.txtcomment !=''){
+                    $scope.comment.push($scope.txtcomment);
+                    $scope.txtcomment = "";
+                    }
+                }
 
+                $scope.remItem = function($index) {
+                    $scope.comment.splice($index, 1);
+                }
 }]);
 
 

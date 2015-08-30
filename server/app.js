@@ -32,7 +32,7 @@ app.use(passport.session());
 
 
 //Mongo Setup
-var mongoURI = "mongodb://localhost:27017/spiich";
+var mongoURI = "mongodb://surenros:Surmade1@ds041613.mongolab.com:41613/pericles";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function(err){

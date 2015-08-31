@@ -2,7 +2,7 @@ var app = angular.module('tasksApp');
 
 
 app.controller('HomeController', ['$scope', function($scope){
-    $scope.thing = "Spiich is a fun speaking game that helps your public speaking skills";
+    $scope.thing = "Its is a fun speaking game that helps your public speaking skills";
 
 }]);
 

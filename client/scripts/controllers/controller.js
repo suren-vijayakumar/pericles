@@ -1,9 +1,39 @@
 var app = angular.module('tasksApp');
 
 
-app.controller('HomeController', ['$scope', function($scope){
-    $scope.thing = "Its is a fun speaking game that helps your public speaking skills";
+app.controller('HomeController', ['$scope', '$http',function($scope,$http){
+    $scope.thing = "Its is a fun speaking game that helps your public speaking skills. Placeholder for " +
+        "1.My Stats, 2. Join a session";
 
+        $scope.speaker = {};
+        $scope.speakers = [];
+
+    $scope.getData = function() {
+
+        console.log('getdata');
+       return $http.get("/getusers").then(function(response){
+           if(response.status != 200) {
+               throw new Error("failed to load users.");
+           }
+            $scope.speaker = {};
+            $scope.speakers = response.data;
+           console.log(response);
+            return response.data;
+
+        });
+
+        //$.ajax({
+        //    type: "GET",
+        //    url: "/user/name",
+        //    success: function(data){
+        //        console.log(data);
+        //        $("#welcome").text("Welcome, " + data.firstname);
+        //        $("#lastLogin").text("Last Login Time: " + data.lastlogin);
+        //        updateDate();
+        //    }
+        //});
+    }
+     $scope.getData();
 }]);
 
 app.controller('CrutchController', ['$scope', function($scope){
@@ -13,17 +43,18 @@ app.controller('CrutchController', ['$scope', function($scope){
 
 app.controller('GrammarController', ['$scope', function($scope){
     $scope.thing = "There's more room for proper Grammar!";
-$scope.comment = [];
-                $scope.btn_add = function() {
-                    if($scope.txtcomment !=''){
-                    $scope.comment.push($scope.txtcomment);
-                    $scope.txtcomment = "";
-                    }
-                }
+    $scope.comment = [];
 
-                $scope.remItem = function($index) {
-                    $scope.comment.splice($index, 1);
-                }
+    $scope.btn_add = function() {
+        if($scope.txtcomment !=''){
+        $scope.comment.push($scope.txtcomment);
+        $scope.txtcomment = "";
+        }
+    };
+
+    $scope.remItem = function($index) {
+        $scope.comment.splice($index, 1);
+    }
 }]);
 
 

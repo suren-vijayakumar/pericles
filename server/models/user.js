@@ -10,7 +10,8 @@ var UserSchema = new Schema({
     firstname: {type: String, required: true },
     lastname: {type: String, required: true },
     username: {type: String, required: true, index: {unique: true} },
-    password: {type: String, required: true }
+    password: {type: String, required: true },
+    lastlogin: {type: Date, default: Date.now()}
 });
 
 UserSchema.pre('save', function(next){

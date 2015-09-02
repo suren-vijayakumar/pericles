@@ -33,11 +33,11 @@ app.controller('AppCtrl', ['$scope', '$mdSidenav', 'taskService', '$timeout', '$
 }]);
 
 
-
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
         when('/home', {
             templateUrl: "/assets/views/routes/about.html",
+           //templateUrl: "/assets/views/users.html",
             controller: "HomeController"
         }).
          when('/timer', {

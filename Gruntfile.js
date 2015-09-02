@@ -32,12 +32,19 @@ module.exports = function(grunt){
                 ],
                 "dest": "server/public/assets"
             },
+            jquery: {
+                expand: true,
+                cwd: 'node_modules',
+                src: 'jquery/dist/jquery.min.js',
+                dest: 'server/public/vendors'
+            },
             html: {
                 expand: true,
                 cwd: 'client/views/',
                 src: [
                     "index.html",
-                     "register.html"
+                     "register.html",
+                    "views/users.html"
 
                 ],
                 "dest": "server/public/assets/views/"

@@ -4,8 +4,18 @@ var path = require('path');
 
 var passport = require('passport');
 
+var User = require('../models/user');
+
+router.get("/getusers", function(req,res,next){
+    console.log("made it to getusers")
+    User.find({}).exec(function(err,data){
+        res.send(data);
+        //console.log(data);
+    })
+});
 router.post("/", passport.authenticate('local', {
     successRedirect: "/assets/views/routes/home.html",
+    //successRedirect: "/assets/views/users.html",
     failureRedirect: "/"
 }));
 

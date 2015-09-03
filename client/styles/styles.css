@@ -76,7 +76,7 @@ body{
 
 .log,.container {
 	padding: 5px;
-	text-align: center;
+	text-align: left;
 }
 .login{
     font-size: 20px;

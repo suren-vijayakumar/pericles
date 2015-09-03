@@ -1,4 +1,9 @@
 <!--<p> timer</p>-->
+<label for="currentSpeaker"> select speakers: </label>
+    <select name="repeatSelect" ng-model="speakers.currentSpeaker">
+      <option ng-repeat="user in speakers" value="{{user._id}}">{{user.firstname}}</option>
+    </select>
+
 <div ng-app="tasksApp" ng-controller="TimerController">
 
     <div ng-repeat="options in stopwatches">

@@ -1,6 +1,6 @@
 var app = angular.module('tasksApp', ['ngMaterial','ngRoute']);
 
-app.controller('AppCtrl', ['$scope', '$mdSidenav', 'taskService', '$timeout', '$log', '$location', function($scope, $mdSidenav, taskService, $timeout, $log, $location) {
+app.controller('AppCtrl', ['$http','$scope', '$mdSidenav', 'taskService', '$timeout', '$log', '$location', function($http,$scope, $mdSidenav, taskService, $timeout, $log, $location) {
   var alltasks = [];
 
   $scope.selected = null;
@@ -29,7 +29,30 @@ app.controller('AppCtrl', ['$scope', '$mdSidenav', 'taskService', '$timeout', '$
     $scope.toggleSidenav('left');
     console.log(task.templateUrl);
     $location.path(task.templateUrl);
+
   }
+
+        $scope.speaker = {};
+        $scope.speakers = [];
+
+        $scope.getData = function() {
+
+        console.log('getdata');
+        return $http.get("/getusers").then(function(response){
+           if(response.status != 200) {
+               throw new Error("failed to load users.");
+           }
+            $scope.speaker = {};
+            $scope.speakers = response.data;
+           console.log(response);
+            return response.data;
+
+        });
+
+
+    }
+     $scope.getData();
+
 }]);
 
 
@@ -37,7 +60,6 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
         when('/home', {
             templateUrl: "/assets/views/routes/about.html",
-           //templateUrl: "/assets/views/users.html",
             controller: "HomeController"
         }).
          when('/timer', {

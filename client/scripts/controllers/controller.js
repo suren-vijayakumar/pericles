@@ -5,22 +5,6 @@ app.controller('HomeController', ['$scope', '$http',function($scope,$http){
     $scope.thing = "Its is a fun speaking game that helps your public speaking skills. Placeholder for " +
         "1.My Stats, 2. Join a session";
 
-        $scope.speaker = {};
-        $scope.speakers = [];
-
-    $scope.getData = function() {
-
-        console.log('getdata');
-       return $http.get("/getusers").then(function(response){
-           if(response.status != 200) {
-               throw new Error("failed to load users.");
-           }
-            $scope.speaker = {};
-            $scope.speakers = response.data;
-           console.log(response);
-            return response.data;
-
-        });
 
         //$.ajax({
         //    type: "GET",
@@ -32,11 +16,11 @@ app.controller('HomeController', ['$scope', '$http',function($scope,$http){
         //        updateDate();
         //    }
         //});
-    }
-     $scope.getData();
+
+
 }]);
 
-app.controller('CrutchController', ['$scope', function($scope){
+app.controller('CrutchController', ['$scope', function($scope, $http){
     $scope.thing = "No more um-ah's!";
 
 }]);

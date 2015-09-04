@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PERICLES</title>
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/assets/styles/styles.css">
+
+    <!--SCRIPTS-->
+    <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Welcome to the Pericles' Admin page</h1>
+            <div class="account-wall">
+                <form class="form-signin"  action="/speechsession" method="post">
+                    <div>
+                     <label for="sessionName"></label>
+                     <input type="text" name="sessionName" id="sessionName" class="form-control" placeholder="sessionName" required autofocus>
+                    </div>
+                    <div>
+                      <input class="btn btn-lg btn-primary btn-block" type="submit" value="Create Session"/>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

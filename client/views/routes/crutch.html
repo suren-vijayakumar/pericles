@@ -1,23 +1,37 @@
-<p class ="projectsptag">crutch</p>
-<p> {{thing}}</p>
-<label for="currentSpeaker"> select speakers: </label>
+<p class ="projectsptag">Um/Ah counts</p>
+<!--<p> {{thing}}</p>-->
+<label for="currentSpeaker"> Select speaker: </label>
     <select name="repeatSelect" ng-model="speakers.currentSpeaker">
       <option ng-repeat="user in speakers" value="{{user._id}}">{{user.firstname}}</option>
     </select>
+<br>
 <div>
-    <button class="btn btn-danger btn-sm" ng-click="count1 = count1 + 1" ng-init="count1=0">Um/Ahs</button>
-<span>count: {{count1}}</span>
+    <button class="btn btn-danger btn-lg" ng-click="ahCount = ahCount + 1" ng-init="ahCount=0">Ah's</button>
+<span>ahCount: {{ahCount}}</span>
 
 </div>
 <br>
 <div>
-    <button class="btn btn-info btn-sm" ng-click="count2 = count2 + 1" ng-init="count2=0">And</button>
-<span>count: {{count2}}</span>
+    <button class="btn btn-info btn-lg" ng-click="andCount = andCount + 1" ng-init="andCount=0">And</button>
+<span>andCount: {{andCount}}</span>
 
 </div>
 <br>
 <div>
-    <button class="btn btn-success btn-sm" ng-click="count3 = count3 + 1" ng-init="count3=0">So</button>
-<span>count: {{count3}}</span>
+    <button class="btn btn-success btn-lg" ng-click="soCount = soCount + 1" ng-init="soCount=0">So's</button>
+<span>soCount: {{soCount}}</span>
+
+</div>
+<br>
+<div>
+    <button class="btn btn-info btn-lg" ng-click="likeCount = likeCount + 1" ng-init="likeCount=0">like</button>
+<span>likeCount: {{likeCount}}</span>
+
+</div>
+<br>
+
+<div>
+    <button class="btn btn-danger btn-lg" ng-click="pauseCount = pauseCount + 1" ng-init="pauseCount=0">pauses</button>
+<span>pauseCount: {{pauseCount}}</span>
 
 </div>

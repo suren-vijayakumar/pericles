@@ -44,6 +44,7 @@ module.exports = function(grunt){
                 src: [
                     "index.html",
                      "register.html",
+                    "admin.html",
                     "views/users.html"
 
                 ],

@@ -1,6 +1,6 @@
 <!--<p class ="projectsptag">grammar</p>-->
 <!--<p> {{thing}}</p>-->
-<label for="currentSpeaker"> select speakers: </label>
+<label for="currentSpeaker"> Select speaker: </label>
     <select name="repeatSelect" ng-model="speakers.currentSpeaker">
       <option ng-repeat="user in speakers" value="{{user._id}}">{{user.firstname}}</option>
     </select>

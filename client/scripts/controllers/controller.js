@@ -5,7 +5,6 @@ app.controller('HomeController', ['$scope', '$http',function($scope,$http){
     $scope.thing = "Its is a fun speaking game that helps your public speaking skills. Placeholder for " +
         "1.My Stats, 2. Join a session";
 
-
         //$.ajax({
         //    type: "GET",
         //    url: "/user/name",
@@ -16,7 +15,6 @@ app.controller('HomeController', ['$scope', '$http',function($scope,$http){
         //        updateDate();
         //    }
         //});
-
 
 }]);
 

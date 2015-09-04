@@ -53,6 +53,28 @@ app.controller('AppCtrl', ['$http','$scope', '$mdSidenav', 'taskService', '$time
     }
      $scope.getData();
 
+        $scope.session = {};
+        $scope.sessions = [];
+
+        $scope.getSession = function() {
+
+        console.log('getsession');
+
+        return $http.get("/getsessions").then(function(res){
+           if(res.status != 200) {
+               throw new Error("failed to load sessions.");
+           }
+            $scope.session = {};
+            $scope.sessions = res.data;
+           console.log(res);
+            return res.data;
+
+        });
+
+
+    }
+     $scope.getData();
+
 }]);
 
 

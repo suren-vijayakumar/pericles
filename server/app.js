@@ -8,10 +8,13 @@ var session = require('express-session');
 var localStrategy = require('passport-local');
 
 var User = require('./models/user');
+var Speech = require('./models/speech');
 var index = require('./routes/index');
 var register = require('./routes/register');
 
 var users = require('./routes/users');
+var speechsession = require('./routes/speechsession');
+//var admin = require('./routes/admin');
 
 var mongoose = require('mongoose');
 
@@ -76,7 +79,7 @@ passport.use('local', new localStrategy({
 }));
 
 
-
+app.use('/speechsession', speechsession);
 app.use('/register', register);
 app.use('/user', users);
 app.use('/', index);

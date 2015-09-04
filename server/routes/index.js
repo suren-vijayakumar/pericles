@@ -5,12 +5,17 @@ var path = require('path');
 var passport = require('passport');
 
 var User = require('../models/user');
+var Speech = require('../models/speech');
+
+router.get("/getsessions", function(req,res,next){
+    Speech.find({}).exec(function(err,data){
+        res.send(data);
+    })
+});
 
 router.get("/getusers", function(req,res,next){
-    console.log("made it to getusers")
     User.find({}).exec(function(err,data){
         res.send(data);
-        //console.log(data);
     })
 });
 router.post("/", passport.authenticate('local', {
@@ -20,7 +25,6 @@ router.post("/", passport.authenticate('local', {
 }));
 
 router.get('/create', function(req, res, next){
-    console.log("Made it here");
     res.sendFile(path.join(__dirname, "../public/assets/views/another.html"));
 });
 

@@ -73,7 +73,7 @@ app.controller('AppCtrl', ['$http','$scope', '$mdSidenav', 'taskService', '$time
 
 
     }
-     $scope.getData();
+     $scope.getSession();
 
 }]);
 

@@ -7,6 +7,11 @@ var passport = require('passport');
 var User = require('../models/user');
 var Speech = require('../models/speech');
 
+router.get("/admin", function(req, res, next){
+    var file = req.params[0] || 'views/admin.html';
+    res.sendFile(path.join(__dirname, "../public", file));
+});
+
 router.get("/getsessions", function(req,res,next){
     Speech.find({}).exec(function(err,data){
         res.send(data);
@@ -28,9 +33,16 @@ router.get('/create', function(req, res, next){
     res.sendFile(path.join(__dirname, "../public/assets/views/another.html"));
 });
 
+router.get("/admin", function(req, res, next){
+    console.log("Hit: ", req.params);
+    var file = req.params[0] || '/assets/views/admin.html';
+    res.sendFile(path.join(__dirname, "../public", file));
+});
+
+
 router.get("/*", function(req, res, next){
     console.log("Hit: ", req.params);
-    var file = req.params[0] || "/assets/views/index.html";
+    var file = req.params[0] || '/assets/views/index.html';
     res.sendFile(path.join(__dirname, "../public", file));
 });
 

@@ -7,12 +7,15 @@
     </select>
 
     <label for="currentSession"> select session: </label>
-    <select name="repeatSelect" ng-model="speakers.currentSession">
+    <select name="repeatSession" ng-model="sessions.currentSession">
       <option ng-repeat="session in sessions" value="{{session._id}}">{{session.sessionName}}</option>
     </select>
 
 <hr>
   <tt>currentSpeakerId = {{speakers.currentSpeaker}}</tt><br/>
+
+<hr>
+  <tt>currentSessionId = {{sessions.currentSession}}</tt><br/>
 <!--<ul>-->
     <!--<li ng-repeat="user in speakers">{{user.firstname}}</li>-->
 <!--</ul>-->

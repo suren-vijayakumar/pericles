@@ -1,5 +1,7 @@
 var app = angular.module('tasksApp', ['ngMaterial','ngRoute']);
 
+//This is the master controller for the sidebar
+
 app.controller('AppCtrl', ['$http','$scope', '$mdSidenav', 'taskService', '$timeout', '$log', '$location', function($http,$scope, $mdSidenav, taskService, $timeout, $log, $location) {
   var alltasks = [];
 
@@ -74,6 +76,19 @@ app.controller('AppCtrl', ['$http','$scope', '$mdSidenav', 'taskService', '$time
 
     }
      $scope.getSession();
+
+
+    //$scope.updateGrammar = function(sessionID, grammarReview){
+    //    $http.put('/getsessions/' + sessionID, {"grammar": grammarReview})
+    //        .success(function(data) {
+    //            $scope.session = {};
+    //            $scope.sessions = data;
+    //            console.log(data);
+    //        })
+    //        .error(function(error) {
+    //            console.log('Error: ' + error);
+    //        });
+    //};
 
 }]);
 

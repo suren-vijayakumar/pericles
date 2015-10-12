@@ -1,8 +1,12 @@
-<!--<p class ="projectsptag">grammar</p>-->
-<!--<p> {{thing}}</p>-->
+
 <label for="currentSpeaker"> Select speaker: </label>
     <select name="repeatSelect" ng-model="speakers.currentSpeaker">
       <option ng-repeat="user in speakers" value="{{user._id}}">{{user.firstname}}</option>
+    </select>
+    <label for="currentSession"> select session: </label>
+    <select name="repeatSession" ng-model="sessions.currentSession">
+      <option ng-repeat="session in sessions" value="{{session._id}}">{{session.sessionName}}</option>
+        <br>
     </select>
         <div ng-app="tasksApp" ng-controller="GrammarController">
                 Grammarian Review
@@ -10,7 +14,7 @@
 
                     <textarea ng-model="txtcomment" placeholder="Your Comment" style='width:550px'></textarea>
                     <div>
-                       <button class="btn btn-success btn-lg" ng-click='btn_add();' style='margin-top:10px;'>Post</button>
+                       <button class="btn btn-success btn-lg" ng-click='btn_add();(updateGrammar(session._id, session.grammar));' style='margin-top:10px;'>Post</button>
                     </div>
 
 
@@ -21,3 +25,12 @@
                 </form>
         </div>
 
+             <!--<form class="form-signin"  action="/speechsession" method="put">-->
+                    <!--<div>-->
+                     <!--<label for="grammar"></label>-->
+                     <!--<textarea type="text" name="grammar" id="grammar" class="form-control" placeholder="Your Comment" required autofocus></textarea>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                      <!--<input class="btn btn-lg btn-primary btn-block" type="submit" value="post"/>-->
+                    <!--</div>-->
+                <!--</form>-->

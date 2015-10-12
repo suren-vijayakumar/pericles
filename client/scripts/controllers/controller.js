@@ -1,29 +1,22 @@
+//All the controllers here
+
 var app = angular.module('tasksApp');
 
-
+//Controllers for the Homepage
 app.controller('HomeController', ['$scope', '$http',function($scope,$http){
-    $scope.thing = "Its is a fun speaking game that helps your public speaking skills. Placeholder for " +
-        "1.My Stats, 2. Join a session";
+    $scope.thing = "Its is a fun speaking game that helps your public speaking skills";
 
-        //$.ajax({
-        //    type: "GET",
-        //    url: "/user/name",
-        //    success: function(data){
-        //        console.log(data);
-        //        $("#welcome").text("Welcome, " + data.firstname);
-        //        $("#lastLogin").text("Last Login Time: " + data.lastlogin);
-        //        updateDate();
-        //    }
-        //});
 
 }]);
 
+//This is the controller for the Crutch words
 app.controller('CrutchController', ['$scope', function($scope, $http){
     $scope.thing = "No more um-ah's!";
 
 }]);
 
-app.controller('GrammarController', ['$scope', function($scope){
+//Controller for the Grammarian
+app.controller('GrammarController', ['$scope','$http', function($scope, $http){
     $scope.thing = "There's more room for proper Grammar!";
     $scope.comment = [];
 
@@ -36,11 +29,25 @@ app.controller('GrammarController', ['$scope', function($scope){
 
     $scope.remItem = function($index) {
         $scope.comment.splice($index, 1);
-    }
+    };
+
+    //Eventually save it to the database
+
+    $scope.updateGrammar = function(sessionID, txtcomment){
+        $http.put('/getsessions/' + sessionID, {"grammar": txtcomment})
+            .success(function(data) {
+                $scope.session = {};
+                $scope.sessions = data;
+                console.log("got to updateGrammar");
+            })
+            .error(function(error) {
+                console.log('Error: ' + error);
+            });
+    };
 }]);
 
 
-
+// The timer controller
 app.controller('TimerController', ['$scope', function($scope){
     //$scope.stopwatches = [{ log: []},{interval: 1000, log: []},{interval: 2000, log: []}];
     $scope.stopwatches = [{ log: []}];

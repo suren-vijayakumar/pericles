@@ -4,8 +4,14 @@
     <select name="repeatSelect" ng-model="speakers.currentSpeaker">
       <option ng-repeat="user in speakers" value="{{user._id}}">{{user.firstname}}</option>
     </select>
-<br>
+<!--<br>-->
+
+ <label for="currentSession"> select session: </label>
+    <select name="repeatSession" ng-model="sessions.currentSession">
+      <option ng-repeat="session in sessions" value="{{session._id}}">{{session.sessionName}}</option>
+    </select>
 <div>
+  <br>
     <button class="btn btn-danger btn-lg" ng-click="ahCount = ahCount + 1" ng-init="ahCount=0">Ah's</button>
 <span>ahCount: {{ahCount}}</span>
 

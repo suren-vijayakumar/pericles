@@ -4,6 +4,10 @@
       <option ng-repeat="user in speakers" value="{{user._id}}">{{user.firstname}}</option>
     </select>
 
+ <label for="currentSession"> select session: </label>
+    <select name="repeatSession" ng-model="sessions.currentSession">
+      <option ng-repeat="session in sessions" value="{{session._id}}">{{session.sessionName}}</option>
+    </select>
 <div ng-app="tasksApp" ng-controller="TimerController">
 
     <div ng-repeat="options in stopwatches">
@@ -19,8 +23,9 @@
              </div>
             </div>
         </div>
+        <label for="currentSpeaker"></label>
         <div class="log" ng-repeat="log in options.log">
-            {{log/1000}} seconds
+        <p value="{{user._id}}">{{user.firstname}} spoke for    {{log/1000}} seconds</p>
         </div>
     </div>
 </div>

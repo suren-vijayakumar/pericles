@@ -18,6 +18,17 @@ router.get("/getsessions", function(req,res,next){
     })
 });
 
+router.put('/getsessions/:id', function(req, res, next){
+    console.log("got to put!");
+    Speech.findByIdAndUpdate(req.params.id, req.body, function(err, data){
+        console.log("got inside speech.findbyidandupdate");
+        return Speech.find({}).exec(function(err, data){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(data));
+        });
+    });
+});
+
 router.get("/getusers", function(req,res,next){
     User.find({}).exec(function(err,data){
         res.send(data);
